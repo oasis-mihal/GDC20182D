@@ -26,14 +26,9 @@ public class AttackClass
 {
 	public UnityEvent function;
 	public float damage;
+	public float range;
 	public AttackType type = AttackType.Default;
 	public bool available = true;
-	public int maxUses = 1;
-	[HideInInspector]
-	public int currentUses;
-	public float rechargeTime = 0;
-	[HideInInspector]
-	public float rechargeWait = 0;
 	public GameObject effect;
 }
 
@@ -637,6 +632,34 @@ public class Player_Controller : MonoBehaviour
 
 		}
 	}
+	public void WaterWhip()
+	{
+		//returns all colliders within a ball
+		Collider[] colliders = Physics.OverlapSphere(rb.worldCenterOfMass, currentAttack.range);
+		foreach (Collider _collider in colliders)
+		{
+			//if already "Whipping"
+			if (currentAttack.effect.GetComponent<ParticleSystem>().isPlaying)
+			{
+				break;
+			}
+			//if self
+			if (_collider.transform.root == this.gameObject.transform)
+			{
+				return;
+			}
+			//if has health component
+			if (_collider.GetComponent<Health>() != null)
+			{
+				currentAttack.effect.transform.LookAt(_collider.transform.position);
+				currentAttack.effect.GetComponent<ParticleSystem>().Play();
+				_collider.GetComponent<Health>().TakeDamage(currentAttack.damage, currentAttack.type);
+				break;
+			}
+
+		}
+	}
+	/* 
 	public void EarthQuake()
 	{
 		if (currentAttack.currentUses > currentAttack.maxUses)
@@ -653,7 +676,7 @@ public class Player_Controller : MonoBehaviour
 		
 
 		currentAttack.currentUses++;
-	}
+	}*/
 
 	#endregion
 

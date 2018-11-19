@@ -1449,24 +1449,12 @@ MonoBehaviour:
     amount: 1
     initialDelay: 0
     subsequentDelay: 0
-  - enemyPrefab: {fileID: 1030400507663832, guid: 5cdca7b1f4e4b6a46817d578d218c2e6,
+  - enemyPrefab: {fileID: 1124204181167834, guid: 480f94ca45fe993478f430379a6745ce,
       type: 2}
-    position: {fileID: 1293924136}
-    amount: 1
-    initialDelay: 0
-    subsequentDelay: 0
-  - enemyPrefab: {fileID: 1030400507663832, guid: 5cdca7b1f4e4b6a46817d578d218c2e6,
-      type: 2}
-    position: {fileID: 1893411697}
-    amount: 1
-    initialDelay: 0
-    subsequentDelay: 0
-  - enemyPrefab: {fileID: 1030400507663832, guid: 5cdca7b1f4e4b6a46817d578d218c2e6,
-      type: 2}
-    position: {fileID: 1521416221}
-    amount: 1
-    initialDelay: 0
-    subsequentDelay: 0
+    position: {fileID: 258476770}
+    amount: 10
+    initialDelay: 1
+    subsequentDelay: 5
   playerSpawnPosition: {fileID: 1407926923}
   scene: Scene2
 --- !u!4 &1922785627

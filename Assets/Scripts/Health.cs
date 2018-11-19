@@ -45,6 +45,7 @@ public class Health : MonoBehaviour
 	public void Reset()
 	{
 		Start();
+		isDead = false;
 	}
 
 	// Update is called once per frame
@@ -74,6 +75,9 @@ public class Health : MonoBehaviour
 	}
 	void Die()
 	{
+		//Sets object to dead
+		isDead = true;
+		
 		//check if there is a diefunction
 		if (dieFunction.GetPersistentEventCount() > 0)
 		{
@@ -85,8 +89,7 @@ public class Health : MonoBehaviour
 		{
 			Destroy(this.gameObject);
 		}
-		//Sets object to dead
-		isDead = true;
+		
 	}
 	void Regen()
 	{

@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour {
 		if (timeBetweenAttacks > attackWait)
 		{
 			_player.transform.GetComponent<Health>().TakeDamage(attackDamage, AttackType.Slime);
-			_player.transform.GetComponent<Rigidbody>().velocity = (_player.transform.position - transform.position) * 10f;
+			_player.transform.GetComponent<Rigidbody>().velocity = Vector3.Normalize(_player.transform.position - transform.position) * 10f;
 			navAgent.isStopped = true;
 			timeBetweenAttacks = 0;
 			Invoke("Restart", 1f);
